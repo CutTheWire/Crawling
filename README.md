@@ -6,7 +6,4 @@ wrtn.py가 정상 작동하기 위해선 ./wrtn 폴더안에 .env를 아래 코�
 wrtn_email= #your_wrtn_id
 wrtn_password= #your_wrtn_pw
 wrtn_url= #your_wrtn_url
-proxy= #your_proxy_address:your_proxy_port
 ```
-## 
-https://free-proxy-list.net/
