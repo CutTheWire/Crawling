@@ -35,23 +35,26 @@ class ProxyChecker:
         proxy_address = proxy['Proxy address:port']
         proxies = self.get_proxies(proxy['Proxy type'], proxy_address)
         
-        if proxies:
-            try:
-                response = requests.get(self.google_url, proxies=proxies, timeout=10)
-                if response.status_code == 200:
-                    print(f"Proxy {proxy['Index']} ({proxy_address}) is working!✅")
-                else:
-                    print(f"Proxy {proxy['Index']} ({proxy_address}) is not working.❌")
-            except:
+        try:
+            response = requests.get(self.google_url, proxies=proxies, timeout=10)
+            if response.status_code == 200:
+                print(f"Proxy {proxy['Index']} ({proxy_address}) is working!✅")
+            else:
                 print(f"Proxy {proxy['Index']} ({proxy_address}) is not working.❌")
+        except:
+            print(f"Proxy {proxy['Index']} ({proxy_address}) is not working.❌")
+
+    def check_proxies_by_type(self, proxy_type):
+        print(f"Checking {proxy_type} proxies:")
+        proxies = [p for p in self.proxy_data if p['Proxy type'] == proxy_type]
+        for proxy in proxies:
+            self.check_proxy(proxy)
 
     def run(self):
-        for proxy_type in self.proxy_types:
-            print(f"Checking {proxy_type} proxies:")
-            for proxy in self.proxy_data:
-                if proxy['Proxy type'] == proxy_type:
-                    self.check_proxy(proxy)
+            for proxy_type in self.proxy_types:
+                self.check_proxies_by_type(proxy_type)
+
 
 if __name__ == "__main__":
-    proxy_checker = ProxyChecker('wrtn/proxy_list.json', 'https://www.google.com')
+    proxy_checker = ProxyChecker('proxy/proxy_list.json', 'https://www.google.com')
     proxy_checker.run()

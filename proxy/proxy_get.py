@@ -4,8 +4,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
+
 import os
-import time
 import json
 
 class ProxyManager:
@@ -38,21 +38,26 @@ class ProxyManager:
         self.driver.get('https://spys.one/en/free-proxy-list/')
         wait = WebDriverWait(self.driver, 100)
         self.proxy_list = []
+
         for row in wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, 'tr.spy1x'))):
             proxy_info = self.extract_proxy_info(row)
             if proxy_info:
                 self.proxy_list.append(proxy_info)
+
         for row in wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, 'tr.spy1xx'))):
             proxy_info = self.extract_proxy_info(row)
             if proxy_info:
                 self.proxy_list.append(proxy_info)
+
         return self.proxy_list
 
     def save_proxy_list(self, file_name='wrtn\proxy_list.json'):
         proxy_list = self.get_proxy_list()
         os.makedirs(os.path.dirname(file_name), exist_ok=True)
+
         with open(file_name, 'w', encoding='utf-8') as f:
             json.dump(proxy_list, f, ensure_ascii=False, indent=4)
+
         print(f"프록시 서버 정보가 {file_name}에 저장되었습니다.")
 
 if __name__ == "__main__":
