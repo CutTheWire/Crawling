@@ -35,13 +35,16 @@ class Auto:
         self.driver = webdriver.Chrome(service=service, options=options)
         self.driver.get(self.wrtn_url)
 
-    # 기존 코드와 동일
-    def get_first_button(self):
+    def get_first_button(self) -> WebDriverWait:
+        '''대화 답변 1번째 클릭 함수'''
+
         return WebDriverWait(self.driver, 100).until(
             EC.element_to_be_clickable((By.XPATH, "(//button[@class='css-x7f1x9'])[1]"))
         )
 
-    def check_driver_status(self):
+    def check_driver_status(self) -> bool:
+        '''While 상태 함수'''
+
         try:
             self.driver.current_url
             return True
@@ -49,7 +52,9 @@ class Auto:
             self.driver = None
             return False
 
-    def login(self):
+    def login(self) -> None:
+        '''Wrtn 로그인 함수'''
+
         try:
             login_button = WebDriverWait(self.driver, 10).until(
                 EC.element_to_be_clickable((By.CSS_SELECTOR, 'button.css-1utg1yz'))
@@ -77,14 +82,53 @@ class Auto:
         except Exception as e:
             print(f"Error during login: {str(e)}")
 
-    def run_script(self):
+    def perform_deletion(self) -> None:
+        '''대화 목록 삭제 함수'''
+
+        try:
+            edit_button = WebDriverWait(self.driver, 10).until(
+                EC.element_to_be_clickable((By.CLASS_NAME, "css-15wn0bx"))
+            )
+            edit_button.click()
+            time.sleep(1)
+
+            parent_element = WebDriverWait(self.driver, 10).until(
+                EC.presence_of_element_located((By.CLASS_NAME, "css-1hw5egt"))
+            )
+            confirm_button = parent_element.find_element(By.CLASS_NAME, "css-14nl16v")
+            confirm_button.click()
+            time.sleep(1)
+
+            parent_element = WebDriverWait(self.driver, 10).until(
+                EC.presence_of_element_located((By.CLASS_NAME, "css-3cmpyx"))
+            )
+            delete_button = parent_element.find_element(By.CLASS_NAME, "css-9xfakb")
+            delete_button.click()
+            time.sleep(1)
+
+            # 두 번째 삭제 버튼 클릭
+            second_delete_button = WebDriverWait(self.driver, 10).until(
+                EC.element_to_be_clickable((By.CSS_SELECTOR, "button.css-opiluf"))
+            )
+            second_delete_button.click()
+            time.sleep(1)
+
+        except TimeoutException:
+            print("삭제 요소를 찾는 데 시간이 너무 오래 걸립니다.")
+        except Exception as e:
+            print(f"Error during deletion: {str(e)}")
+
+    def run_script(self) -> None:
         self.running = True
+        count = 0
+
         try:
             self.first_button = self.get_first_button()
             self.first_button.click()
+            
             time.sleep(1)
-
             self.login()
+
             time.sleep(3)
             self.driver.get(self.wrtn_url)
 
@@ -92,13 +136,20 @@ class Auto:
                 time.sleep(2)
                 self.first_button = self.get_first_button()
                 self.first_button.click()
+
                 time.sleep(2)
                 self.driver.get(self.wrtn_url)
+
+                count += 1
+                if count == 10:
+                    self.perform_deletion()
+                    count = 0  
 
         except TimeoutException:
             print("요소를 찾는 데 시간이 너무 오래 걸립니다.")
         except Exception as e:
             print(f"Error during automation: {str(e)}")
+
 
 if __name__ == "__main__":
     auto = Auto()
