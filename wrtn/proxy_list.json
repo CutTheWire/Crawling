@@ -1,0 +1,242 @@
+[
+    {
+        "Index": 1,
+        "Proxy address:port": "138.59.165.85:1024",
+        "Proxy type": "HTTP",
+        "Anonymity*": "ANM",
+        "Country (city)": "Paraguay (Estancia Nueva Esperanza)",
+        "Hostname/ORG": "138-59-165-85.pandaconect.net (PANDA CONECT S.A.)"
+    },
+    {
+        "Index": 2,
+        "Proxy address:port": "103.234.31.59:8080",
+        "Proxy type": "HTTP (Miktotik)",
+        "Anonymity*": "ANM",
+        "Country (city)": "Indonesia",
+        "Hostname/ORG": "103.234.31.59 (PT Jenius Lintas Nusantara)"
+    },
+    {
+        "Index": 3,
+        "Proxy address:port": "154.236.177.102:1976",
+        "Proxy type": "HTTP",
+        "Anonymity*": "HIA",
+        "Country (city)": "Egypt",
+        "Hostname/ORG": "HOST-102-177.236.154.nile-online.net (Etisalat Misr)"
+    },
+    {
+        "Index": 4,
+        "Proxy address:port": "80.87.178.175:8080",
+        "Proxy type": "HTTP (Miktotik)",
+        "Anonymity*": "NOA",
+        "Country (city)": "Czech Republic (Mikulov)",
+        "Hostname/ORG": "80-87-178-175.static.oxid.cz (Nordic Telecom Regional s.r.o.)"
+    },
+    {
+        "Index": 5,
+        "Proxy address:port": "103.178.42.3:8181",
+        "Proxy type": "HTTP (Miktotik)",
+        "Anonymity*": "NOA",
+        "Country (city)": "Indonesia !!!",
+        "Hostname/ORG": "103.178.42.3 (PT Jaring Solusi Persada)"
+    },
+    {
+        "Index": 6,
+        "Proxy address:port": "103.133.26.126:8181",
+        "Proxy type": "HTTP (Miktotik)",
+        "Anonymity*": "ANM",
+        "Country (city)": "Indonesia (Bekasi) !!!",
+        "Hostname/ORG": "103.133.26.126 (PT PHATRIA INTI PERSADA)"
+    },
+    {
+        "Index": 7,
+        "Proxy address:port": "89.185.233.203:443",
+        "Proxy type": "HTTP (Squid)",
+        "Anonymity*": "NOA",
+        "Country (city)": "Czech Republic (Břasy)",
+        "Hostname/ORG": "test1.htscloud.cz (Master Internet s.r.o.)"
+    },
+    {
+        "Index": 8,
+        "Proxy address:port": "176.253.53.25:80",
+        "Proxy type": "HTTP",
+        "Anonymity*": "HIA",
+        "Country (city)": "United Kingdom (Sheffield)",
+        "Hostname/ORG": "176.253.53.25 (Sky UK Limited)"
+    },
+    {
+        "Index": 9,
+        "Proxy address:port": "5.75.200.249:80",
+        "Proxy type": "HTTP",
+        "Anonymity*": "ANM",
+        "Country (city)": "Germany (Wiesbaden)",
+        "Hostname/ORG": "static.249.200.75.5.clients.your-server.de (Hetzner Online GmbH)"
+    },
+    {
+        "Index": 10,
+        "Proxy address:port": "51.89.255.67:80",
+        "Proxy type": "HTTP",
+        "Anonymity*": "ANM",
+        "Country (city)": "United Kingdom (London)",
+        "Hostname/ORG": "ip67.ip-51-89-255.eu (OVH SAS)"
+    },
+    {
+        "Index": 11,
+        "Proxy address:port": "49.13.215.9:80",
+        "Proxy type": "HTTP",
+        "Anonymity*": "ANM",
+        "Country (city)": "Germany (Nuremberg)",
+        "Hostname/ORG": "static.9.215.13.49.clients.your-server.de (Hetzner Online GmbH)"
+    },
+    {
+        "Index": 12,
+        "Proxy address:port": "188.165.49.152:80",
+        "Proxy type": "HTTP (Squid)",
+        "Anonymity*": "NOA",
+        "Country (city)": "France",
+        "Hostname/ORG": "ip152.ip-188-165-49.eu (OVH SAS)"
+    },
+    {
+        "Index": 13,
+        "Proxy address:port": "210.87.125.146:8080",
+        "Proxy type": "HTTPS (Miktotik)",
+        "Anonymity*": "NOA",
+        "Country (city)": "Indonesia (Kediri) !!!",
+        "Hostname/ORG": "210.87.125.146 (CV Brawijaya Giga Network)"
+    },
+    {
+        "Index": 14,
+        "Proxy address:port": "187.32.76.99:3128",
+        "Proxy type": "HTTP (Miktotik)",
+        "Anonymity*": "NOA",
+        "Country (city)": "Brazil",
+        "Hostname/ORG": "187-032-076-099.static.ctbctelecom.com.br (ALGAR TELECOM SA)"
+    },
+    {
+        "Index": 15,
+        "Proxy address:port": "216.176.187.99:39812",
+        "Proxy type": "HTTP",
+        "Anonymity*": "ANM",
+        "Country (city)": "United States (Seattle) !!!",
+        "Hostname/ORG": "harris.proinitiate.com (WOW)"
+    },
+    {
+        "Index": 16,
+        "Proxy address:port": "201.47.88.21:3128",
+        "Proxy type": "HTTP (Miktotik)",
+        "Anonymity*": "NOA",
+        "Country (city)": "Brazil (Maringá)",
+        "Hostname/ORG": "corporativo.gvt.net.br (TELEFONICA BRASIL S.A)"
+    },
+    {
+        "Index": 17,
+        "Proxy address:port": "185.221.219.98:3128",
+        "Proxy type": "HTTP (Squid)",
+        "Anonymity*": "NOA",
+        "Country (city)": "Netherlands (Amsterdam)",
+        "Hostname/ORG": "98-219-221-185.clients.gthost.com (AS-GLOBALTELEHOST)"
+    },
+    {
+        "Index": 18,
+        "Proxy address:port": "139.99.244.154:80",
+        "Proxy type": "HTTP",
+        "Anonymity*": "HIA",
+        "Country (city)": "Australia (Sydney)",
+        "Hostname/ORG": "ip154.ip-139-99-244.net (OVH SAS)"
+    },
+    {
+        "Index": 19,
+        "Proxy address:port": "103.165.212.210:8080",
+        "Proxy type": "HTTPS (Miktotik)",
+        "Anonymity*": "NOA",
+        "Country (city)": "Indonesia (Bulak)",
+        "Hostname/ORG": "210.212.165.103.net.iforte.net.id (PT iForte Global Internet)"
+    },
+    {
+        "Index": 20,
+        "Proxy address:port": "204.145.81.68:8228",
+        "Proxy type": "HTTP",
+        "Anonymity*": "HIA",
+        "Country (city)": "United States (New York)",
+        "Hostname/ORG": "infologika.com.br (AMC)"
+    },
+    {
+        "Index": 21,
+        "Proxy address:port": "186.97.192.60:999",
+        "Proxy type": "HTTP (Miktotik)",
+        "Anonymity*": "NOA",
+        "Country (city)": "Colombia (Medellín)",
+        "Hostname/ORG": "Dinamic-Tigo186-97-192-60.tigo.com.co (Colombia Movil)"
+    },
+    {
+        "Index": 22,
+        "Proxy address:port": "129.205.198.122:8080",
+        "Proxy type": "HTTP (Miktotik)",
+        "Anonymity*": "NOA",
+        "Country (city)": "Botswana (Gaborone)",
+        "Hostname/ORG": "129.205.198.122 (BOFINET)"
+    },
+    {
+        "Index": 23,
+        "Proxy address:port": "103.137.84.17:83",
+        "Proxy type": "HTTP (Miktotik)",
+        "Anonymity*": "NOA",
+        "Country (city)": "India (Jaipur) !!!",
+        "Hostname/ORG": "17.84.137.103-bfibernet.co.in (Bakliwal Telecom Services Pvt Ltd)"
+    },
+    {
+        "Index": 24,
+        "Proxy address:port": "165.227.169.229:3080",
+        "Proxy type": "HTTP (Squid)",
+        "Anonymity*": "NOA",
+        "Country (city)": "Germany (Frankfurt am Main)",
+        "Hostname/ORG": "165.227.169.229 (DIGITALOCEAN-ASN)"
+    },
+    {
+        "Index": 25,
+        "Proxy address:port": "134.209.67.109:19752",
+        "Proxy type": "HTTP (Squid)",
+        "Anonymity*": "NOA",
+        "Country (city)": "United States (North Bergen) !!!",
+        "Hostname/ORG": "134.209.67.109 (DIGITALOCEAN-ASN)"
+    },
+    {
+        "Index": 26,
+        "Proxy address:port": "149.56.148.20:80",
+        "Proxy type": "HTTP",
+        "Anonymity*": "ANM",
+        "Country (city)": "Canada (Montreal)",
+        "Hostname/ORG": "ip20.ip-149-56-148.net (OVH SAS)"
+    },
+    {
+        "Index": 27,
+        "Proxy address:port": "217.182.55.226:80",
+        "Proxy type": "HTTP",
+        "Anonymity*": "ANM",
+        "Country (city)": "France",
+        "Hostname/ORG": "ip226.ip-217-182-55.eu (OVH SAS)"
+    },
+    {
+        "Index": 28,
+        "Proxy address:port": "103.133.27.143:8080",
+        "Proxy type": "HTTP (Miktotik)",
+        "Anonymity*": "NOA",
+        "Country (city)": "Indonesia (Bekasi) !!!",
+        "Hostname/ORG": "103.133.27.143 (PT PHATRIA INTI PERSADA)"
+    },
+    {
+        "Index": 29,
+        "Proxy address:port": "125.227.225.157:3389",
+        "Proxy type": "SOCKS5",
+        "Anonymity*": "HIA",
+        "Country (city)": "Taiwan (Kaohsiung City)",
+        "Hostname/ORG": "125-227-225-157.hinet-ip.hinet.net (Data Communication Business Group)"
+    },
+    {
+        "Index": 30,
+        "Proxy address:port": "168.205.102.26:8080",
+        "Proxy type": "HTTP (Miktotik)",
+        "Anonymity*": "NOA",
+        "Country (city)": "Brazil (Petrópolis)",
+        "Hostname/ORG": "168.205.102.26 (C-ComTelecom Servios Ltda-ME)"
+    }
+]

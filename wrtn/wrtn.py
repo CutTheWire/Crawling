@@ -1,4 +1,3 @@
-
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
@@ -29,13 +28,14 @@ class Auto:
         self.driver = None
 
         options = Options()
-        options.add_argument("--remote-debugging-port=9515")
-        service = Service('./chromedriver/chromedriver.exe')
+        options.add_argument("--remote-debugging-port=9515") # Chrome browser를 원격 디버깅 모드, 디버깅을 위한 포트를 지정하는 옵션
+        service = Service('./chromedriver/chromedriver.exe') # ChromeDriver 실행 파일의 경로
 
         self.wrtn_url = WRTN_URL
         self.driver = webdriver.Chrome(service=service, options=options)
         self.driver.get(self.wrtn_url)
 
+    # 기존 코드와 동일
     def get_first_button(self):
         return WebDriverWait(self.driver, 100).until(
             EC.element_to_be_clickable((By.XPATH, "(//button[@class='css-x7f1x9'])[1]"))
