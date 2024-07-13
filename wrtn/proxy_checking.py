@@ -1,46 +1,57 @@
 import requests
 import json
 
-# JSON 데이터 로드
-with open('wrtn\proxy_list.json', 'r') as file:
-    proxy_data = json.load(file)
+class ProxyChecker:
+    def __init__(self, file_path, google_url):
+        self.file_path = file_path
+        self.google_url = google_url
+        self.proxy_data = self.load_proxy_data()
+        self.proxy_types = ['HTTP', 'HTTP (Miktotik)', 'SOCKS5', 'HTTP (Squid)', 'HTTPS (Squid)', 'HTTPS (Miktotik)']
 
-# Google 주소 테스트
-google_url = 'https://www.google.com'
+    def load_proxy_data(self):
+        with open(self.file_path, 'r') as file:
+            return json.load(file)
 
-# 프록시 타입별로 체크
-proxy_types = ['HTTP', 'HTTP (Miktotik)', 'SOCKS5', 'HTTP (Squid)', 'HTTPS (Squid)', 'HTTPS (Miktotik)']
+    def get_proxies(self, proxy_type, proxy_address):
+        if proxy_type in ['HTTP', 'HTTP (Miktotik)', 'HTTP (Squid)']:
+            return {
+                'http': f'http://{proxy_address}',
+                'https': f'http://{proxy_address}'
+            }
+        elif proxy_type in ['HTTPS', 'HTTPS (Miktotik)', 'HTTPS (Squid)']:
+            return {
+                'http': f'http://{proxy_address}',
+                'https': f'https://{proxy_address}'
+            }
+        elif proxy_type == 'SOCKS5':
+            return {
+                'http': f'socks5://{proxy_address}',
+                'https': f'socks5://{proxy_address}'
+            }
+        else:
+            return None
 
-for proxy_type in proxy_types:
-    print(f"Checking {proxy_type} proxies:")
-    for proxy in proxy_data:
-        if proxy['Proxy type'] == proxy_type:
-            proxy_address = proxy['Proxy address:port']
-            # 프록시 유형에 따라 프록시 설정 생성
-            if proxy_type == 'HTTP (Miktotik)' or 'HTTP (Squid)' or 'HTTP':
-                proxies = {
-                    'http': f'http://{proxy_address}',
-                    'https': f'http://{proxy_address}'
-                }
-            elif proxy_type == 'HTTPS (Miktotik)' or 'HTTPS (Squid)' or 'HTTPS':
-                proxies = {
-                    'http': f'https://{proxy_address}',
-                    'https': f'https://{proxy_address}'
-                }
-            elif proxy_type == 'SOCKS5':
-                proxies = {
-                    'http': f'socks5://{proxy_address}',
-                    'https': f'socks5://{proxy_address}'
-                }
-            else:
-                continue  # 지원되지 않는 프록시 유형 건너뛰기
-
+    def check_proxy(self, proxy):
+        proxy_address = proxy['Proxy address:port']
+        proxies = self.get_proxies(proxy['Proxy type'], proxy_address)
+        
+        if proxies:
             try:
-                # Google 주소 테스트
-                response = requests.get(google_url, proxies=proxies, timeout=10)
+                response = requests.get(self.google_url, proxies=proxies, timeout=10)
                 if response.status_code == 200:
                     print(f"Proxy {proxy['Index']} ({proxy_address}) is working!✅")
                 else:
                     print(f"Proxy {proxy['Index']} ({proxy_address}) is not working.❌")
             except:
                 print(f"Proxy {proxy['Index']} ({proxy_address}) is not working.❌")
+
+    def run(self):
+        for proxy_type in self.proxy_types:
+            print(f"Checking {proxy_type} proxies:")
+            for proxy in self.proxy_data:
+                if proxy['Proxy type'] == proxy_type:
+                    self.check_proxy(proxy)
+
+if __name__ == "__main__":
+    proxy_checker = ProxyChecker('wrtn/proxy_list.json', 'https://www.google.com')
+    proxy_checker.run()
