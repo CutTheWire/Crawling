@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:5.7
+    restart: unless-stopped
+    ports:
+      - 3310:3306
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - ./fastapi/mysql/data:/var/lib/mysql
+      - ./fastapi/mysql/log.cnf:/etc/mysql/conf.d/log.cnf:ro
+      - ./fastapi/mysql/logs:/var/log/mysql
+      - ./fastapi/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+
+  python_app:
+    build: 
+      context: ./fastapi/python
+    ports:
+      - "8000:8000"
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    depends_on:
+      - mysql
